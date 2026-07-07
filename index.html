@@ -19,6 +19,7 @@
         </style>
 
         <h1 style="text-align: center;">Pedra, Papel ou Tesoura</h1>
+        <h2 style="text-align: center;" class="vencedor"></h2>
 
             <div class="align">
                 <div class="player-options ">
@@ -37,6 +38,53 @@
             var elementos = document.querySelectorAll('.player-options div > img');
             var playerOpt = "";
             var inimigoOpt = "";
+
+            function validarVitoria(){
+
+                let vencedor = document.querySelector(".vencedor");
+
+                if(playerOpt == "papel"){
+
+                    if(inimigoOpt == "papel"){
+                        //Empate
+                        vencedor.innerHTML = "O jogo foi empatado";
+                    }else if(inimigoOpt == "tesoura"){
+                        //Inimigo gamhou
+                        vencedor.innerHTML = "O inimigo ganhou";
+                    }else if(inimigoOpt == "pedra"){
+                        //Player ganhou
+                        vencedor.innerHTML = "Você ganhou";
+                    }
+                }
+
+                if(playerOpt == "tesoura"){
+                    
+                    if(inimigoOpt == "tesoura"){
+                        //Empate
+                        vencedor.innerHTML = "O jogo foi empatado";
+                    }else if(inimigoOpt == "pedra"){
+                        //Inimigo gamhou
+                        vencedor.innerHTML = "O inimigo ganhou";
+                    }else if(inimigoOpt == "papel"){
+                        //Player ganhou
+                        vencedor.innerHTML = "Você ganhou";
+                    }
+                }
+
+                if(playerOpt == "pedra"){
+                    
+                    if(inimigoOpt == "pedra"){
+                        //Empate
+                        vencedor.innerHTML = "O jogo foi empatado";
+                    }else if(inimigoOpt == "papel"){
+                        //Inimigo gamhou
+                        vencedor.innerHTML = "O inimigo ganhou";
+                    }else if(inimigoOpt == "tesoura"){
+                        //Player ganhou
+                        vencedor.innerHTML = "Você ganhou";
+                    }
+                }
+            }
 
             function resetInimigo(){
                 const enemyOptions = document.querySelectorAll('.enemy-Options div');
@@ -59,9 +107,8 @@
                     }
                 }
 
-
-                alert(playerOpt);
-                alert(inimigoOpt);
+                validarVitoria();
+                
             }
 
             function resetOpacityPlayer(){
